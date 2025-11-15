@@ -1,6 +1,6 @@
 # UTS Visual 3 - Rudy 2310010148
 
-Proyek aplikasi manajemen inventaris Perkantoran menggunakan PySide6 dan MySQL untuk mata kuliah Visual 3.
+Proyek aplikasi manajemen inventaris perkantoran menggunakan PySide6 dan MySQL untuk mata kuliah Visual 3.
 
 ## Deskripsi
 
