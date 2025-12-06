@@ -57,6 +57,7 @@ class InstansiForm(QWidget):
         self.formInstansi.tableInstansi.setSelectionBehavior(QAbstractItemView.SelectRows)
 
         self.formInstansi.input_cari.textChanged.connect(self.filterDataInstansi)
+        self.formInstansi.btnPrint.clicked.connect(self.CetakLaporanInstansi)
 
         # pertama kali tampil
         self.tampilDataInstansi()
@@ -79,6 +80,9 @@ class InstansiForm(QWidget):
             self.formInstansi.tableInstansi.setItem(i, 2, QTableWidgetItem(baris["alamat"]))
             self.formInstansi.tableInstansi.setItem(i, 3, QTableWidgetItem(baris["kontak"] or ""))
             self.formInstansi.tableInstansi.setItem(i, 4, QTableWidgetItem(baris["nama_admin"] or ""))
+
+    def CetakLaporanInstansi(self):
+        self.aksiCrud.laporanInstansi()
 
     # ===================== BERSIHKAN FORM =====================
     def BersihForm(self):

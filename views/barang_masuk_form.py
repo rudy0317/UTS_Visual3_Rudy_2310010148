@@ -60,6 +60,7 @@ class BarangMasukForm(QWidget):
         self.formBarangMasuk.tableBarangMasuk.setSelectionBehavior(QAbstractItemView.SelectRows)
 
         self.formBarangMasuk.input_cari.textChanged.connect(self.filterDataBarangMasuk)
+        self.formBarangMasuk.btnPrint.clicked.connect(self.CetakLaporanMasuk)
 
         # pertama kali tampil
         self.tampilDataBarangMasuk()
@@ -84,6 +85,9 @@ class BarangMasukForm(QWidget):
             self.formBarangMasuk.tableBarangMasuk.setItem(i, 3, QTableWidgetItem(str(baris["tanggal"])))
             self.formBarangMasuk.tableBarangMasuk.setItem(i, 4, QTableWidgetItem(str(baris["jumlah"])))
             self.formBarangMasuk.tableBarangMasuk.setItem(i, 5, QTableWidgetItem(baris["nama_user"] or ""))
+
+    def CetakLaporanMasuk(self):
+        self.aksiCrud.laporanBarangMasuk()
 
     # ===================== BERSIHKAN FORM =====================
     def BersihForm(self):

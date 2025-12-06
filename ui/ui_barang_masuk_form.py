@@ -97,6 +97,11 @@ class Ui_BarangMasukForm(object):
 
         self.buttonLayout.addWidget(self.btnBersih)
 
+        self.btnPrint = QPushButton(BarangMasukForm)
+        self.btnPrint.setObjectName(u"btnPrint")
+
+        self.buttonLayout.addWidget(self.btnPrint)
+
 
         self.verticalLayout.addLayout(self.buttonLayout)
 
@@ -142,6 +147,7 @@ class Ui_BarangMasukForm(object):
         self.btnUbah.setText(QCoreApplication.translate("BarangMasukForm", u"Ubah", None))
         self.btnHapus.setText(QCoreApplication.translate("BarangMasukForm", u"Hapus", None))
         self.btnBersih.setText(QCoreApplication.translate("BarangMasukForm", u"Bersih", None))
+        self.btnPrint.setText(QCoreApplication.translate("BarangMasukForm", u"Print", None))
         self.input_cari.setPlaceholderText(QCoreApplication.translate("BarangMasukForm", u"Cari berdasarkan kode atau nama..", None))
         ___qtablewidgetitem = self.tableBarangMasuk.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("BarangMasukForm", u"ID Masuk", None));

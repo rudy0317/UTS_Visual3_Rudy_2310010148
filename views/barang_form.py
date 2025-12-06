@@ -48,7 +48,7 @@ class BarangForm(QWidget):
         self.formBarang.btnUbah.clicked.connect(self.UbahBarang)
         self.formBarang.btnHapus.clicked.connect(self.HapusBarang)
         self.formBarang.btnBersih.clicked.connect(self.BersihForm)
-
+        self.formBarang.btnPrint.clicked.connect(self.CetakLaporan)
         self.formBarang.tableBarang.itemSelectionChanged.connect(self.isiFormDariTabel)
         self.formBarang.tableBarang.setSelectionBehavior(QAbstractItemView.SelectRows)
 
@@ -207,3 +207,5 @@ class BarangForm(QWidget):
             self.formBarang.tableBarang.setItem(i, 3, QTableWidgetItem(str(baris["harga"])))
             self.formBarang.tableBarang.setItem(i, 4, QTableWidgetItem(str(baris["stok"])))
 
+    def CetakLaporan(self):
+        self.aksiCrud.laporanBarang()

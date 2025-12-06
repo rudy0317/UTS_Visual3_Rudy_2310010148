@@ -1,4 +1,9 @@
-# UTS Visual 3 - Rudy 2310010148
+# UTS Visual 3 - Aplikasi Inventaris Perkantoran
+
+**Pembuat:**
+- Nama: Rudy
+- NPM: 2310010148
+- Kelas: 5G
 
 Proyek aplikasi manajemen inventaris perkantoran menggunakan PySide6 dan MySQL untuk mata kuliah Visual 3.
 

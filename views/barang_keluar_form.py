@@ -53,6 +53,7 @@ class BarangKeluarForm(QWidget):
         self.formBarangKeluar.tableBarangKeluar.setSelectionBehavior(QAbstractItemView.SelectRows)
 
         self.formBarangKeluar.input_cari.textChanged.connect(self.filterDataBarangKeluar)
+        self.formBarangKeluar.btnPrint.clicked.connect(self.CekLaporanKeluar)
 
         self.tampilDataBarangKeluar()
 
@@ -199,3 +200,6 @@ class BarangKeluarForm(QWidget):
             self.formBarangKeluar.tableBarangKeluar.setItem(i, 3, QTableWidgetItem(str(baris["tanggal"])))
             self.formBarangKeluar.tableBarangKeluar.setItem(i, 4, QTableWidgetItem(str(baris["jumlah"])))
             self.formBarangKeluar.tableBarangKeluar.setItem(i, 5, QTableWidgetItem(baris["nama_user"] or ""))
+
+    def CekLaporanKeluar(self):
+        self.aksiCrud.laporanBarangKeluar()

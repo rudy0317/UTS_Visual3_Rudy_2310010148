@@ -107,6 +107,11 @@ class Ui_InstansiForm(object):
 
         self.buttonLayout.addWidget(self.btnBersih)
 
+        self.btnPrint = QPushButton(InstansiForm)
+        self.btnPrint.setObjectName(u"btnPrint")
+
+        self.buttonLayout.addWidget(self.btnPrint)
+
 
         self.verticalLayout.addLayout(self.buttonLayout)
 
@@ -150,6 +155,7 @@ class Ui_InstansiForm(object):
         self.btnUbah.setText(QCoreApplication.translate("InstansiForm", u"Ubah", None))
         self.btnHapus.setText(QCoreApplication.translate("InstansiForm", u"Hapus", None))
         self.btnBersih.setText(QCoreApplication.translate("InstansiForm", u"Bersih", None))
+        self.btnPrint.setText(QCoreApplication.translate("InstansiForm", u"Print", None))
         self.input_cari.setPlaceholderText(QCoreApplication.translate("InstansiForm", u"Cari berdasarkan nama instansi", None))
         ___qtablewidgetitem = self.tableInstansi.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("InstansiForm", u"ID Instansi", None));

@@ -1,4 +1,7 @@
 from database.connection import get_connection
+from reportlab.lib.pagesizes import A4, landscape
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
+from reportlab.lib import colors
 
 class BarangMasukModel:
     def __init__(self):
@@ -55,3 +58,29 @@ class BarangMasukModel:
         aksiCur.execute(sql, (id_masuk,))
         self.koneksi.commit()
         aksiCur.close()
+
+    def laporanBarangMasuk(self):
+        aksiCur = self.koneksi.cursor()
+        aksiCur.execute("select * From barang_masuk")
+        datalist = aksiCur.fetchall()
+
+        tabel_data = [["id_masuk", "id_barang", "tanggal", "jumlah", "id_user"]] + list(datalist)
+
+        pdffile = "laporan_barang_masuk.pdf"
+        doc = SimpleDocTemplate(pdffile, pagesize=landscape(A4))
+        tabel = Table(tabel_data, colWidths=[50, 100, 100, 100, 100])
+
+        style = TableStyle([
+            ('BACKGROUND', (0, 0), (-1, 0), colors.grey),
+            ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+            ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+            ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+            ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+            ('BACKGROUND', (0, 1), (-1, -1), colors.beige),
+            ('GRID', (0, 0), (-1, -1), 1, colors.black),
+        ])
+        tabel.setStyle(style)
+
+        doc.build([tabel])
+        aksiCur.close()
+        print(f"Laporan berhasil dibuat: {pdffile}")
